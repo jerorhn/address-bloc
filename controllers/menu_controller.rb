@@ -201,15 +201,11 @@ class MenuController
   end
 
   def demolish
-    num_of_entries = address_book.entries.length
     print "Are you sure you want to delete ALL entries? (y/n) : "
     selection = gets.chomp
 
     if selection == "y"
-      while num_of_entries >= 0
-        address_book.entries.delete_at(num_of_entries)
-        num_of_entries -= 1
-      end
+      address_book.entries = []
       puts "Entries Deleted"
     elsif selection == "n"
       system "clear"
